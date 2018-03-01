@@ -1,0 +1,97 @@
+\documentclass[
+11pt,
+a4paper,
+headsepline=on,
+footsepline=on,
+headheight=3em,
+footheight=1em
+]{scrartcl}
+
+% Preamble --------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage[
+	pdftitle={Berichtsheft Max Mustermann},
+	pdfsubject={Dies ist die Berichtsheftführung von Max Mustermann},
+	pdfauthor={BrutalBirdie
+  g},
+	pdfkeywords={Berichtsheft, Ausbildung, IHK, 666, OpenSource, LaTeX, TeX}
+]{hyperref}
+\usepackage{tabularx,booktabs}
+\usepackage[%
+  autooneside,
+  %automark,
+  headsepline,               %% Separation line below the header
+  footsepline,               %% Separation line above the footer
+  markuppercase
+]{scrpage2}
+\usepackage{graphicx}
+\usepackage[bottom=2cm,footskip=8mm]{geometry}
+%\usepackage{showframe}
+\usepackage{csquotes}
+\usepackage{lmodern}
+\usepackage{hyperref}
+
+\MakeOuterQuote{"}
+
+\renewcommand*{\titlepagestyle}{empty}
+
+\lohead{\includegraphics[scale=0.16]{qr-code.png}}
+\rohead{%
+  \begin{tabular}{r l}
+    \textbf{Name:} & Max Musterman \\
+    \textbf{Firma:} & Musterfirma GmbH \\
+    \textbf{Abteilung:} & Softwareentwicklung \\
+  \end{tabular}
+}
+\pagestyle{scrheadings}
+
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}
+
+\newcommand*{\SignatureAndDate}[1]{%
+  \par\noindent\makebox[2.5in]{\hrulefill} \hfill\makebox[2.0in]{\hrulefill}%
+  \par\noindent\makebox[2.5in][c]{#1}      \hfill\makebox[2.0in][c]{Datum}%
+}
+
+\renewcommand{\thesection}{}
+
+\makeatletter
+% we use \prefix@<level> only if it is defined
+\renewcommand{\@seccntformat}[1]{%
+  \ifcsname prefix@#1\endcsname
+    \csname prefix@#1\endcsname
+  \else
+    \csname the#1\endcsname\quad
+  \fi}
+% define \prefix@section
+\newcommand\prefix@section{}
+\makeatother
+
+% Document begins here -------------- 
+\begin{document}
+
+\title{Berichtsheft}
+\author{%
+  Max Musterman\\
+  \\
+  Fachinformatiker Anwendungsentwicklung\\
+  \\
+  \includegraphics[scale=0.75]{qr-code.png}\\
+  Musterfirma GmbH%
+}
+\date{1. September 2016 - 31. August 2019}
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\input{./Entries/welcome.tex}
+\input{./Entries/example.tex}
+\input{./Entries/example_berufsschule.tex}
+
+\end{document}

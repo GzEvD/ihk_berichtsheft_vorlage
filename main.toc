@@ -1,0 +1,4 @@
+\select@language {ngerman}
+\contentsline {section}{\numberline {}Einf\IeC {\"u}hrung}{3}{section.1}
+\contentsline {section}{\numberline {}Ausbildungsnachweis 0000, Woche 00}{4}{section.2}
+\contentsline {section}{\numberline {}Ausbildungsnachweis 0000, Woche 00 -- Berufsschule}{5}{section.3}
